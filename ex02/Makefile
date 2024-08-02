@@ -1,12 +1,12 @@
-NAME := span
+NAME := mutantStack
 
 INCLUDE_DIR := include
 SRC_DIR := src
 OBJ_DIR := objs
 
-SOURCE := main.cpp $(addprefix $(SRC_DIR)/, Span.cpp)
+SOURCE := main.cpp
 
-HEADER := $(addprefix $(INCLUDE_DIR)/, Span.hpp)
+HEADER := $(addprefix $(INCLUDE_DIR)/, MutantStack.hpp)
 
 
 OBJS := $(SOURCE:%.cpp=$(OBJ_DIR)/%.o)

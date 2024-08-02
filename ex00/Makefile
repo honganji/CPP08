@@ -1,4 +1,4 @@
-NAME := functions
+NAME := easyfind
 
 INCLUDE_DIR := include
 SRC_DIR := src
@@ -6,7 +6,7 @@ OBJ_DIR := objs
 
 SOURCE := main.cpp
 
-HEADER := $(addprefix $(INCLUDE_DIR)/, head.hpp)
+HEADER := $(addprefix $(INCLUDE_DIR)/, easyfind.hpp)
 
 
 OBJS := $(SOURCE:%.cpp=$(OBJ_DIR)/%.o)

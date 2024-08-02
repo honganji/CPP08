@@ -1,18 +1,26 @@
-#include "include/head.hpp"
+#include "include/easyfind.hpp"
+#include <random>
 
 int main( void )
 {
-	int a = 2;
-	int b = 3;
-	::swap( a, b );
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	std::vector<int> vec;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> distrib(1, 100);
+	for (size_t i = 0; i < 100; i++)
+	{
+		vec.push_back(distrib(gen));
+		if (vec.at(i) == 10)
+			std::cout << "There is 10!" << std::endl;
+	}
+	try
+	{
+		std::cout << *(easyfind(vec, 10)) << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 	return (0);
 }

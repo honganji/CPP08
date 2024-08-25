@@ -79,5 +79,32 @@ int main()
 		
 	}
 	std::cout << "\033[34m---------------------------\033[0m" << std::endl << std::endl;
+
+	// Test for too less elements
+	{
+		std::cout << "\033[35mTest more then 10,000 numbers\033[0m" << std::endl;
+		std::cout << "\033[35m---------------------------\033[0m" << std::endl;
+		Span sp = Span(15000);
+		for (size_t i = 0; i < 15000; i++)
+			sp.addNumber(i);		
+		try
+		{
+			std::cout << sp.shortestSpan() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
+		try
+		{
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	std::cout << "\033[35m---------------------------\033[0m" << std::endl << std::endl;
 	return 0;
 }
